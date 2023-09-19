@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .calculator {
+            max-width: 400px;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900">
+    <div class="container mx-auto my-8">
+        <div class="calculator bg-gray-800 shadow-xl text-white mx-auto my-0 p-5 rounded-lg">
+            <h1 class="text-xl font-semibold font-mono text-center my-4">Kalkulator Sederhana</h1>
+            <input id="display" class="w-full p-2 my-2 font-semibold rounded bg-gray-900 text-right focus:outline-none" type="text" readonly>
+            <div class="grid grid-cols-4 gap-2">
+                <button class="col-span-2 p-2 font-medium bg-gray-900 hover:bg-opacity-70 rounded"
+                    onclick="clearInput()">Clear</button>
+                <button class="p-2 bg-gray-900 hover:bg-opacity-70 rounded" onclick="tambahTampilkan('7')">7</button>
+                <button class="p-2 bg-gray-900 hover:bg-opacity-70 rounded" onclick="tambahTampilkan('8')">8</button>
+                <button class="p-2 bg-gray-900 hover:bg-opacity-70 rounded" onclick="tambahTampilkan('9')">9</button>
+                <button class="p-2 bg-gray-900 hover:bg-opacity-70 rounded" onclick="tambahTampilkan('4')">4</button>
+                <button class="p-2 bg-gray-900 hover:bg-opacity-70 rounded" onclick="tambahTampilkan('5')">5</button>
+                <button class="p-2 bg-gray-900 hover:bg-opacity-70 rounded" onclick="tambahTampilkan('6')">6</button>
+                <button class="p-2 bg-gray-900 hover:bg-opacity-70 rounded" onclick="tambahTampilkan('3')">3</button>
+                <button class="p-2 bg-gray-900 hover:bg-opacity-70 rounded" onclick="tambahTampilkan('2')">2</button>
+                <button class="p-2 bg-gray-900 hover:bg-opacity-70 rounded" onclick="tambahTampilkan('1')">1</button>
+                <button class="p-2 bg-gray-900 hover:bg-opacity-70 rounded" onclick="tambahTampilkan('0')">0</button>
+                <button class="p-2 bg-gray-900 hover:bg-opacity-70 rounded" onclick="tambahTampilkan('.')">.</button>
+                <button class="p-2 bg-gray-900 hover:bg-opacity-70 rounded" onclick="tambahOperator('+')">+</button>
+                <button class="p-2 bg-gray-900 hover:bg-opacity-70 rounded" onclick="tambahOperator('-')">-</button>
+                <button class="p-2 bg-gray-900 hover:bg-opacity-70 rounded" onclick="tambahOperator('*')">*</button>
+                <button class="p-2 bg-gray-900 hover:bg-opacity-70 rounded" onclick="tambahOperator('/')">/</button>
+                <button class="col-span-4 p-2 my-2 rounded bg-indigo-500 hover:bg-indigo-600 text-white font-semibold"
+                    onclick="hitung()">Hitung</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/calculator.js"></script>
+</body>
+
+</html>
