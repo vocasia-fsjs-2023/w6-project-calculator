@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Sederhana</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="kalkulator">
+        <input type="text" id="hitung" readonly>
+        <div class="buttons">
+            <button onclick="angka('1')">1</button>
+            <button onclick="angka('2')">2</button>
+            <button onclick="angka('3')">3</button>
+            <button onclick="angka('+')">+</button>
+            <button onclick="angka('4')">4</button>
+            <button onclick="angka('5')">5</button>
+            <button onclick="angka('6')">6</button>
+            <button onclick="angka('-')">-</button>
+            <button onclick="angka('7')">7</button>
+            <button onclick="angka('8')">8</button>
+            <button onclick="angka('9')">9</button>
+            <button onclick="angka('*')">*</button>
+            
+            <button onclick="angka('.')">.</button>
+            <button onclick="angka('0')">0</button>
+            
+            <button onclick="hasil()">=</button>
+            <button onclick="angka('/')">/</button>
+            <button onclick="hapus()">Reset</button>
+            
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
