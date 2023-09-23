@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Kalkulator</title>
+</head>
+
+<body class="bg-gray-200 p-4 min-h-screen flex justify-center items-center">
+    <div class="max-w-md mx-auto bg-white p-8 rounded-2xl shadow-md">
+        <h1 class="text-2xl text-center font-bold mb-4">KALKULATOR</h1>
+        <input type="text" id="output" class="w-full mb-4 p-2 text-right rounded border border-indigo-300" readonly>
+        <div class="grid grid-cols-4 gap-2">
+            <button class="bg-yellow-400 px-7 p-3 hover:bg-yellow-600 hover:text-white rounded"
+                onclick="addToOutput('7')">7</button>
+            <button class="bg-yellow-400 px-7 p-3 hover:bg-yellow-600 hover:text-white rounded"
+                onclick="addToOutput('8')">8</button>
+            <button class="bg-yellow-400 px-7 p-3 hover:bg-yellow-600 hover:text-white rounded"
+                onclick="addToOutput('9')">9</button>
+            <button class="bg-blue-500 px-7 p-3 hover:bg-blue-700 text-white hover:text-black rounded"
+                onclick="addToOutput('+')">+</button>
+<!--  -->
+            <button class="bg-yellow-400 px-7 p-3 hover:bg-yellow-600  hover:text-white rounded"
+                onclick="addToOutput('4')">4</button>
+            <button class="bg-yellow-400 px-7 p-3 hover:bg-yellow-600 hover:text-white rounded"
+                onclick="addToOutput('5')">5</button>
+            <button class="bg-yellow-400 px-7 p-3 hover:bg-yellow-600 hover:text-white rounded"
+                onclick="addToOutput('6')">6</button>
+            <button class="bg-blue-500 px-7 p-3 hover:bg-blue-700 text-white hover:text-black rounded"
+                onclick="addToOutput('-')">-</button>
+<!--  -->
+            <button class="bg-yellow-400 px-7 p-3 hover:bg-yellow-600 hover:text-white rounded"
+                onclick="addToOutput('1')">1</button>
+            <button class="bg-yellow-400 px-7 p-3 hover:bg-yellow-600 hover:text-white rounded"
+                onclick="addToOutput('2')">2</button>
+            <button class="bg-yellow-400 px-7 p-3 hover:bg-yellow-600 hover:text-white rounded"
+                onclick="addToOutput('3')">3</button>
+            <button class="bg-blue-500 px-7 p-3 hover:bg-blue-700 text-white hover:text-black rounded"
+                onclick="addToOutput('*')">*</button>
+<!--  -->
+            <button class="bg-red-500 px-7 p-3 hover:bg-red-700 text-white hover:text-black rounded"
+                onclick="clearOutput()">C</button>
+            <button class="bg-yellow-400 px-7 p-3 hover:bg-yellow-600  hover:text-white rounded"
+                onclick="addToOutput('0')">0</button>
+            <button class="bg-green-500 px-7 p-3 hover:bg-green-700 text-white hover:text-black rounded"
+                onclick="calculateResult()">=</button>
+            <button class="bg-blue-500 px-7 p-3 hover:bg-blue-700 text-white hover:text-black rounded"
+                onclick="addToOutput('/')">/</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
