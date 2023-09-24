@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kalkulator Alfa</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Kalkulator</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <input type="text" id="display" class="form-control" readonly>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-md-1">
+                <button class="btn btn-primary btn-block" onclick="clearDisplay()">C</button>
+            </div>
+            <div class="col-md-1">
+                <button class="btn btn-secondary btn-block" onclick="appendToDisplay('7')">7</button>
+            </div>
+            <div class="col-md-1">
+                <button class="btn btn-secondary btn-block" onclick="appendToDisplay('8')">8</button>
+            </div>
+            <div class="col-md-1">
+                <button class="btn btn-warning btn-block" onclick="appendToDisplay('+')">+</button>
+            </div>
+        </div>
+        <!-- Tambahkan tombol-tombol operator dan angka lainnya di sini -->
+        <div class="row mt-2">
+            <div class="col-md-1">
+                <button class="btn btn-secondary btn-block" onclick="appendToDisplay('4')">4</button>
+            </div>
+            <div class="col-md-1">
+                <button class="btn btn-secondary btn-block" onclick="appendToDisplay('5')">5</button>
+            </div>
+            <div class="col-md-1">
+                <button class="btn btn-secondary btn-block" onclick="appendToDisplay('6')">6</button>
+            </div>
+            <div class="col-md-1">
+                <button class="btn btn-warning btn-block" onclick="appendToDisplay('*')">x</button>
+            </div>
+        </div>
+        <!-- Tambahkan tombol-tombol lainnya di sini -->
+        <div class="row mt-2">
+            <div class="col-md-1">
+                <button class="btn btn-secondary btn-block" onclick="appendToDisplay('1')">1</button>
+            </div>
+            <div class="col-md-1">
+                <button class="btn btn-secondary btn-block" onclick="appendToDisplay('2')">2</button>
+            </div>
+            <div class="col-md-1">
+                <button class="btn btn-secondary btn-block" onclick="appendToDisplay('3')">3</button>
+            </div>
+            <div class="col-md-1">
+                <button class="btn btn-warning btn-block" onclick="appendToDisplay('-')">-</button>
+            </div>
+        </div>
+        <!-- Tambahkan tombol-tombol lainnya di sini -->
+        <div class="row mt-2">
+            <div class="col-md-1">
+                <button class="btn btn-secondary btn-block" onclick="appendToDisplay('0')">0</button>
+            </div>
+            <div class="col-md-1">
+                <button class="btn btn-secondary btn-block" onclick="appendToDisplay('9')">9</button>
+            </div>
+            <div class="col-md-1">
+                <button class="btn btn-success btn-block" onclick="calculateResult()">=</button>
+            </div>
+            <div class="col-md-1">
+                <button class="btn btn-warning btn-block" onclick="appendToDisplay('/')">:</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function appendToDisplay(value) {
+            document.getElementById('display').value += value;
+        }
+
+        function clearDisplay() {
+            document.getElementById('display').value = '';
+        }
+
+        function calculateResult() {
+            try {
+                document.getElementById('display').value = eval(document.getElementById('display').value);
+            } catch (error) {
+                document.getElementById('display').value = 'Error';
+            }
+        }
+    </script>
+</body>
+</html>
