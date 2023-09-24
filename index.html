@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script defer src="./index.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: "#da373d",
+            },
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .content-auto {
+          content-visibility: auto;
+        }
+        .bg-calc {
+          background: rgb(255, 255, 255);
+          background: linear-gradient(
+            144deg,
+            rgba(255, 255, 255, 1) 0%,
+            rgba(108, 140, 177, 1) 100%
+          );
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-slate-600">
+    <div class="w-screen h-screen flex justify-center items-center">
+      <div id="calc-wrapper" class="bg-[#6c8cb1] p-4 rounded-lg bg-calc">
+        <div
+          id="screen"
+          class="w-full h-44 flex items-end flex-col justify-end mb-4"
+        >
+          <h2 id="display-secondary" class="text-black text-xl"></h2>
+          <h1 id="display-main" class="text-black text-4xl">0</h1>
+        </div>
+        <div class="buttons grid grid-cols-4 grid-ro gap-2">
+          <div
+            onclick="trigger('%')"
+            class="w-14 text-white text-lg opacity-80 border-white border-2 h-10 rounded-xl bg-[#7793b1] flex justify-center items-center"
+          >
+            %
+          </div>
+          <div
+            onclick='trigger("(")'
+            class="w-14 text-white text-lg opacity-80 border-white border-2 h-10 rounded-xl bg-[#7793b1] flex justify-center items-center"
+          >
+            (
+          </div>
+          <div
+            onclick='trigger(")")'
+            class="w-14 text-white text-lg opacity-80 border-white border-2 h-10 rounded-xl bg-[#7793b1] flex justify-center items-center"
+          >
+            )
+          </div>
+          <div
+            onclick="trigger('+')"
+            class="w-14 text-white text-lg opacity-80 border-white border-2 h-10 rounded-xl bg-[#7793b1] flex justify-center items-center"
+          >
+            +
+          </div>
+          <div
+            onclick="clearAll('')"
+            class="w-14 text-white text-lg opacity-80 border-white border-2 h-14 rounded-xl bg-[#7793b1] flex justify-center items-center"
+          >
+            Ac
+          </div>
+          <div
+            onclick="clearOne()"
+            class="w-14 text-white text-lg opacity-80 border-white border-2 h-14 rounded-xl bg-[#7793b1] flex justify-center items-center"
+          >
+            C
+          </div>
+          <div
+            onclick="trigger('/')"
+            class="w-14 text-white text-lg opacity-80 border-white border-2 h-14 rounded-xl bg-[#7793b1] flex justify-center items-center"
+          >
+            /
+          </div>
+          <div
+            onclick="trigger('*')"
+            class="w-14 text-white text-lg opacity-80 border-white border-2 h-14 rounded-xl bg-[#7793b1] flex justify-center items-center"
+          >
+            *
+          </div>
+          <div
+            onclick="trigger('7')"
+            class="w-14 text-white text-lg opacity-80 border-white border-2 h-14 rounded-xl bg-[#7793b1] flex justify-center items-center"
+          >
+            7
+          </div>
+          <div
+            onclick="trigger('8')"
+            class="w-14 text-white text-lg opacity-80 border-white border-2 h-14 rounded-xl bg-[#7793b1] flex justify-center items-center"
+          >
+            8
+          </div>
+          <div
+            onclick="trigger('9')"
+            class="w-14 text-white text-lg opacity-80 border-white border-2 h-14 rounded-xl bg-[#7793b1] flex justify-center items-center"
+          >
+            9
+          </div>
+          <div
+            onclick="trigger('-')"
+            class="w-14 text-white text-lg opacity-80 border-white border-2 h-14 rounded-xl bg-[#7793b1] flex justify-center items-center"
+          >
+            -
+          </div>
+          <div
+            onclick="trigger('4')"
+            class="w-14 text-white text-lg opacity-80 border-white border-2 h-14 rounded-xl bg-[#7793b1] flex justify-center items-center"
+          >
+            4
+          </div>
+          <div
+            onclick="trigger('5')"
+            class="w-14 text-white text-lg opacity-80 border-white border-2 h-14 rounded-xl bg-[#7793b1] flex justify-center items-center"
+          >
+            5
+          </div>
+          <div
+            onclick="trigger('6')"
+            class="w-14 text-white text-lg opacity-80 border-white border-2 h-14 rounded-xl bg-[#7793b1] flex justify-center items-center"
+          >
+            6
+          </div>
+          <div
+            onclick="trigger('+')"
+            class="w-14 text-white text-lg opacity-80 border-white border-2 h-14 rounded-xl bg-[#7793b1] flex justify-center items-center"
+          >
+            +
+          </div>
+          <div
+            onclick="trigger('1')"
+            class="w-14 text-white text-lg opacity-80 border-white border-2 h-14 rounded-xl bg-[#7793b1] flex justify-center items-center"
+          >
+            1
+          </div>
+          <div
+            onclick="trigger('2')"
+            class="w-14 text-white text-lg opacity-80 border-white border-2 h-14 rounded-xl bg-[#7793b1] flex justify-center items-center"
+          >
+            2
+          </div>
+          <div
+            onclick="trigger('3')"
+            class="w-14 text-white text-lg opacity-80 border-white border-2 h-14 rounded-xl bg-[#7793b1] flex justify-center items-center"
+          >
+            3
+          </div>
+          <div
+            onclick="calculate()"
+            class="w-14 row-span-2 text-white text-lg opacity-80 border-white border-2 h-full rounded-xl bg-[#7793b1] flex justify-center items-center"
+          >
+            =
+          </div>
+          <div
+            onclick="trigger('0')"
+            class="w-full col-span-2 text-white text-lg opacity-80 border-white border-2 h-14 rounded-xl bg-[#7793b1] flex justify-center items-center"
+          >
+            0
+          </div>
+          <div
+            onclick="trigger('.')"
+            class="w-14 text-white text-lg opacity-80 border-white border-2 h-14 rounded-xl bg-[#7793b1] flex justify-center items-center"
+          >
+            .
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
