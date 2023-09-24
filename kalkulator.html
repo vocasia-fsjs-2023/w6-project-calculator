@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stylish Calculator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Container */
+        .calculator {
+            width: 300px;
+            background: linear-gradient(to bottom, #f5f5f5, #e0e0e0);
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 0 auto;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Display */
+        .display {
+            width: 100%;
+            font-size: 24px;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: right;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Button Grid */
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        /* Button Style */
+        .button {
+            font-size: 18px;
+            padding: 15px;
+            text-align: center;
+            background: linear-gradient(to bottom, #f9f9f9, #e8e8e8);
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Button Hover */
+        .button:hover {
+            background: linear-gradient(to bottom, #e8e8e8, #f9f9f9);
+        }
+
+        /* Operator Button */
+        .operator {
+            background: linear-gradient(to bottom, #f6a623, #f09814);
+            color: white;
+        }
+
+        /* Operator Button Hover */
+        .operator:hover {
+            background: linear-gradient(to bottom, #f09814, #f6a623);
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="calculator">
+                <h2 class="text-center mb-3">Kalk. Ramandha</h2>
+                <div class="display" id="display"></div>
+                <div class="buttons">
+                    <div class="button" onclick="addToDisplay('7')">7</div>
+                    <div class="button" onclick="addToDisplay('8')">8</div>
+                    <div class="button" onclick="addToDisplay('9')">9</div>
+                    <div class="button operator" onclick="addToDisplay('+')">+</div>
+                    <div class="button" onclick="addToDisplay('4')">4</div>
+                    <div class="button" onclick="addToDisplay('5')">5</div>
+                    <div class="button" onclick="addToDisplay('6')">6</div>
+                    <div class="button operator" onclick="addToDisplay('-')">-</div>
+                    <div class="button" onclick="addToDisplay('1')">1</div>
+                    <div class="button" onclick="addToDisplay('2')">2</div>
+                    <div class="button" onclick="addToDisplay('3')">3</div>
+                    <div class="button operator" onclick="addToDisplay('*')">*</div>
+                    <div class="button" onclick="addToDisplay('0')">0</div>
+                    <div class="button" onclick="clearDisplay()">C</div>
+                    <div class="button operator" onclick="calculate()">=</div>
+                    <div class="button operator" onclick="addToDisplay('/')">/</div>
+                    <div class="button" onclick="removeLastDigit()">Del</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function addToDisplay(value) {
+            const display = document.getElementById('display');
+            display.textContent += value;
+        }
+    
+        function clearDisplay() {
+            const display = document.getElementById('display');
+            display.textContent = '';
+        }
+    
+        function calculate() {
+            const display = document.getElementById('display');
+            const expression = display.textContent;
+    
+            try {
+                if (expression === '') {
+                    throw new Error('Empty input');
+                }
+    
+                const result = eval(expression);
+                if (isNaN(result)) {
+                    throw new Error('Invalid calculation');
+                }
+    
+                display.textContent = result;
+            } catch (error) {
+                alert('Error: ' + error.message);
+                clearDisplay();
+            }
+        }
+        
+        function removeLastDigit() {
+            const display = document.getElementById('display');
+            const currentText = display.textContent;
+            display.textContent = currentText.slice(0, -1);
+        }
+    </script>
+</body>
+</html>
