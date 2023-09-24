@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator</title>
+    <!-- Menggunakan Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="bg-white p-8 rounded shadow-md w-80">
+        <h1 class="text-2xl mb-4 text-center">Kalkulator Sederhana</h1>
+        <input id="input" class="w-full p-2 border border-gray-300 rounded mb-4" type="text" placeholder="Masukkan angka atau operasi">
+        <div class="grid grid-cols-4 gap-2">
+            <button class="col-span-1 bg-blue-500 text-white p-2 rounded" onclick="appendToInput('1')">1</button>
+            <button class="col-span-1 bg-blue-500 text-white p-2 rounded" onclick="appendToInput('2')">2</button>
+            <button class="col-span-1 bg-blue-500 text-white p-2 rounded" onclick="appendToInput('3')">3</button>
+            <button class="col-span-1 bg-yellow-500 text-white p-2 rounded" onclick="appendToInput('+')">+</button>
+
+            <button class="col-span-1 bg-blue-500 text-white p-2 rounded" onclick="appendToInput('4')">4</button>
+            <button class="col-span-1 bg-blue-500 text-white p-2 rounded" onclick="appendToInput('5')">5</button>
+            <button class="col-span-1 bg-blue-500 text-white p-2 rounded" onclick="appendToInput('6')">6</button>
+            <button class="col-span-1 bg-yellow-500 text-white p-2 rounded" onclick="appendToInput('-')">-</button>
+
+            <button class="col-span-1 bg-blue-500 text-white p-2 rounded" onclick="appendToInput('7')">7</button>
+            <button class="col-span-1 bg-blue-500 text-white p-2 rounded" onclick="appendToInput('8')">8</button>
+            <button class="col-span-1 bg-blue-500 text-white p-2 rounded" onclick="appendToInput('9')">9</button>
+            <button class="col-span-1 bg-yellow-500 text-white p-2 rounded" onclick="appendToInput('*')">*</button>
+
+            <button class="col-span-1 bg-red-500 text-white p-2 rounded" onclick="clearInput()">Clear</button>
+            <button class="col-span-1 bg-blue-500 text-white p-2 rounded" onclick="appendToInput('0')">0</button>
+            <button class="col-span-1 bg-green-500 text-white p-2 rounded" onclick="calculateResult()">=</button>
+            <button class="col-span-1 bg-yellow-500 text-white p-2 rounded" onclick="appendToInput('/')">/</button>
+        </div>
+    </div>
+
+    <script>
+        function appendToInput(value) {
+            document.getElementById('input').value += value;
+        }
+
+        function clearInput() {
+            document.getElementById('input').value = '';
+        }
+
+        function calculateResult() {
+            const input = document.getElementById('input').value;
+            try {
+                if (input.length < 3) {
+                    throw new Error('Input terlalu pendek');
+                }
+                const result = eval(input);
+                if (isNaN(result)) {
+                    throw new Error('Operasi tidak valid');
+                }
+                document.getElementById('input').value = result;
+            } catch (error) {
+                alert('Error: ' + error.message);
+            }
+        }
+    </script>
+</body>
+</html>
