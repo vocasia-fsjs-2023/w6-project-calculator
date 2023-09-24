@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <title>Kalkulator</title>
+  </head>
+  <body class="bg-gray-100">
+    <div class="container mx-auto mt-10 p-4 bg-white rounded-lg shadow-lg">
+      <h1 class="text-2xl font-semibold mb-4">Kalkulator</h1>
+      <div class="flex flex-col space-y-2">
+        <input id="display" class="border p-2 rounded" type="text" readonly />
+        <div class="grid grid-cols-4 gap-2">
+          <button
+            class="col-span-1 p-2 bg-gray-300 hover:bg-gray-400 rounded"
+            onclick="addToDisplay('7')"
+          >
+            7
+          </button>
+          <button
+            class="col-span-1 p-2 bg-gray-300 hover:bg-gray-400 rounded"
+            onclick="addToDisplay('8')"
+          >
+            8
+          </button>
+          <button
+            class="col-span-1 p-2 bg-gray-300 hover:bg-gray-400 rounded"
+            onclick="addToDisplay('9')"
+          >
+            9
+          </button>
+          <button
+            class="col-span-1 p-2 bg-blue-400 hover:bg-blue-500 rounded"
+            onclick="addToDisplay('+')"
+          >
+            +
+          </button>
+
+          <button
+            class="col-span-1 p-2 bg-gray-300 hover:bg-gray-400 rounded"
+            onclick="addToDisplay('4')"
+          >
+            4
+          </button>
+          <button
+            class="col-span-1 p-2 bg-gray-300 hover:bg-gray-400 rounded"
+            onclick="addToDisplay('5')"
+          >
+            5
+          </button>
+          <button
+            class="col-span-1 p-2 bg-gray-300 hover:bg-gray-400 rounded"
+            onclick="addToDisplay('6')"
+          >
+            6
+          </button>
+          <button
+            class="col-span-1 p-2 bg-blue-400 hover:bg-blue-500 rounded"
+            onclick="addToDisplay('-')"
+          >
+            -
+          </button>
+
+          <button
+            class="col-span-1 p-2 bg-gray-300 hover:bg-gray-400 rounded"
+            onclick="addToDisplay('1')"
+          >
+            1
+          </button>
+          <button
+            class="col-span-1 p-2 bg-gray-300 hover:bg-gray-400 rounded"
+            onclick="addToDisplay('2')"
+          >
+            2
+          </button>
+          <button
+            class="col-span-1 p-2 bg-gray-300 hover:bg-gray-400 rounded"
+            onclick="addToDisplay('3')"
+          >
+            3
+          </button>
+          <button
+            class="col-span-1 p-2 bg-blue-400 hover:bg-blue-500 rounded"
+            onclick="addToDisplay('*')"
+          >
+            *
+          </button>
+
+          <button
+            class="col-span-1 p-2 bg-gray-300 hover:bg-gray-400 rounded"
+            onclick="addToDisplay('0')"
+          >
+            0
+          </button>
+          <button
+            class="col-span-1 p-2 bg-gray-300 hover:bg-gray-400 rounded"
+            onclick="clearDisplay()"
+          >
+            C
+          </button>
+          <button
+            class="col-span-1 p-2 bg-blue-400 hover:bg-blue-500 rounded"
+            onclick="calculate()"
+          >
+            =
+          </button>
+          <button
+            class="col-span-1 p-2 bg-blue-400 hover:bg-blue-500 rounded"
+            onclick="addToDisplay('/')"
+          >
+            /
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="kalkulator.js"></script>
+  </body>
+</html>
