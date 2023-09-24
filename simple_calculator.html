@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kalkulator Sederhana</title>
+    <style>
+        /* Gaya untuk mengatur tampilan kalkulator */
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        #calculator {
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 5px;
+        }
+
+        input[type="button"] {
+            width: 48%;
+            padding: 5px;
+            margin: 2px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="calculator">
+        <!-- Input untuk menampilkan hasil -->
+        <input type="text" id="display" readonly>
+        <br>
+        <!-- Tombol-tombol untuk angka dan operasi -->
+        <input type="button" value="1" onclick="addToDisplay('1')">
+        <input type="button" value="2" onclick="addToDisplay('2')">
+        <input type="button" value="3" onclick="addToDisplay('3')">
+        <input type="button" value="+" onclick="addOperator('+')">
+        <br>
+        <input type="button" value="4" onclick="addToDisplay('4')">
+        <input type="button" value="5" onclick="addToDisplay('5')">
+        <input type="button" value="6" onclick="addToDisplay('6')">
+        <input type="button" value="-" onclick="addOperator('-')">
+        <br>
+        <input type="button" value="7" onclick="addToDisplay('7')">
+        <input type="button" value="8" onclick="addToDisplay('8')">
+        <input type="button" value="9" onclick="addToDisplay('9')">
+        <input type="button" value="*" onclick="addOperator('*')">
+        <br>
+        <input type="button" value="0" onclick="addToDisplay('0')">
+        <input type="button" value="C" onclick="clearDisplay()">
+        <input type="button" value="/" onclick="addOperator('/')">
+        <input type="button" value="=" onclick="calculate()">
+    </div>
+
+    <script>
+        // Variabel-variabel untuk melacak status kalkulator
+        var currentInput = '';      // Menyimpan input pengguna saat ini
+        var currentOperation = '';  // Menyimpan operasi matematika yang sedang digunakan
+        var currentTotal = 0;       // Menyimpan hasil perhitungan sementara
+
+        // Fungsi untuk menambahkan nilai ke tampilan kalkulator
+        function addToDisplay(value) {
+            document.getElementById('display').value += value;
+            currentInput += value;
+        }
+
+        // Fungsi untuk menambahkan operator ke tampilan kalkulator
+        function addOperator(operator) {
+            // Memeriksa apakah sudah ada input sebelum menambahkan operator
+            if (currentInput !== '') {
+                // Menyimpan operator saat ini
+                currentOperation = operator;
+                // Menambahkan operator ke tampilan
+                document.getElementById('display').value += operator;
+                // Mereset currentInput
+                currentInput = '';
+            }
+        }
+
+        // Fungsi untuk menghapus tampilan kalkulator dan mereset variabel
+        function clearDisplay() {
+            document.getElementById('display').value = '';
+            currentInput = '';
+            currentOperation = '';
+            currentTotal = 0;
+        }
+
+        // Fungsi utama untuk melakukan perhitungan matematika
+        function calculate() {
+            var displayValue = document.getElementById('display').value;
+            
+            if (currentInput !== '' && currentOperation !== '' && displayValue !== '') {
+                var inputValue = parseFloat(currentInput); // Menggunakan currentInput, bukan displayValue
+
+                // Melakukan operasi matematika sesuai dengan currentOperation
+                switch (currentOperation) {
+                    case '+':
+                        currentTotal += inputValue;
+                        break;
+                    case '-':
+                        currentTotal -= inputValue;
+                        break;
+                    case '*':
+                        currentTotal *= inputValue;
+                        break;
+                    case '/':
+                        currentTotal /= inputValue;
+                        break;
+                }
+
+                // Menampilkan hasil perhitungan dan meng-update variabel
+                document.getElementById('display').value = currentTotal;
+                currentInput = currentTotal.toString();
+                currentOperation = '';
+            } else {
+                // Menampilkan pesan kesalahan jika operasi tidak valid
+                alert('Error: Operasi tidak valid');
+            }
+        }
+    </script>
+</body>
+</html>
