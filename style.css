@@ -1,0 +1,25 @@
+body {
+    background-color: beige;
+    display: grid;
+    font-family: cursive;
+    font-size: 20px;
+}
+
+p {
+    font-weight: bold;
+    color: #fff;
+}
+
+button {
+    width: 100%;
+}
+
+.card {
+    display: grid;
+    background-color: brown;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 395px;
+    padding: 15px;
+    border-radius: 3px;
+}
+
