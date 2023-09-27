@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <title>Kalkulator Sederhana</title>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1 class="text-center">Kalkulator Sederhana</h1>
+      <div class="row justify-content-center">
+        <div class="col-4">
+          <input
+            id="display"
+            class="form-control mb-2"
+            type="text"
+            placeholder="0"
+            readonly
+          />
+          <div class="btn-group w-100">
+            <button class="btn btn-secondary" onclick="addToDisplay('7')">
+              7
+            </button>
+            <button class="btn btn-secondary" onclick="addToDisplay('8')">
+              8
+            </button>
+            <button class="btn btn-secondary" onclick="addToDisplay('9')">
+              9
+            </button>
+            <button class="btn btn-secondary" onclick="clearDisplay()">
+              C
+            </button>
+          </div>
+          <div class="btn-group w-100 mt-2">
+            <button class="btn btn-secondary" onclick="addToDisplay('4')">
+              4
+            </button>
+            <button class="btn btn-secondary" onclick="addToDisplay('5')">
+              5
+            </button>
+            <button class="btn btn-secondary" onclick="addToDisplay('6')">
+              6
+            </button>
+            <button class="btn btn-secondary" onclick="operate('*')">*</button>
+          </div>
+          <div class="btn-group w-100 mt-2">
+            <button class="btn btn-secondary" onclick="addToDisplay('1')">
+              1
+            </button>
+            <button class="btn btn-secondary" onclick="addToDisplay('2')">
+              2
+            </button>
+            <button class="btn btn-secondary" onclick="addToDisplay('3')">
+              3
+            </button>
+            <button class="btn btn-secondary" onclick="operate('+')">+</button>
+          </div>
+          <div class="btn-group w-100 mt-2">
+            <button class="btn btn-secondary" onclick="addToDisplay('0')">
+              0
+            </button>
+            <button class="btn btn-secondary" onclick="operate('.')">.</button>
+            <button class="btn btn-secondary" onclick="calculateResult()">
+              =
+            </button>
+            <button class="btn btn-secondary" onclick="operate('-')">-</button>
+          </div>
+          <div class="btn-group w-100 mt-2">
+            <button
+              class="btn btn-secondary"
+              onclick="clearDisplay()"
+              style="width: 50%"
+            >
+              Clear
+            </button>
+            <button
+              class="btn btn-secondary"
+              onclick="operate('/')"
+              style="width: 50%"
+            >
+              /
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let displayValue = "";
+
+      function addToDisplay(value) {
+        displayValue += value;
+        document.getElementById("display").value = displayValue;
+      }
+
+      function operate(operator) {
+        if (displayValue.length === 0) {
+          alert("Input tidak valid");
+          clearDisplay();
+        } else {
+          displayValue += operator;
+          document.getElementById("display").value = displayValue;
+        }
+      }
+
+      function clearDisplay() {
+        displayValue = "";
+        document.getElementById("display").value = "0";
+      }
+
+      function calculateResult() {
+        try {
+          displayValue = eval(displayValue).toString();
+          document.getElementById("display").value = displayValue;
+        } catch (error) {
+          alert("Error dalam perhitungan");
+          clearDisplay();
+        }
+      }
+    </script>
+  </body>
+</html>
