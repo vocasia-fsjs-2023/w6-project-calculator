@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>currentDisplay
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .circle-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body class="text-white h-screen flex justify-center items-center">
+    <div class="bg-gray-800 p-6 rounded-lg shadow-md">
+        <div class="grid grid-cols-4 gap-4 text-center">
+            <div class="col-span-4 p-3 border border-gray-600 rounded-lg text-lg font-semibold text-right" id="display">
+                0</div>
+            <button class="col-span-1 p-2 border border-gray-600 circle-btn hover:bg-gray-600"
+                onclick="addToDisplay('7')">7</button>
+            <button class="col-span-1 p-2 border border-gray-600 circle-btn hover:bg-gray-600"
+                onclick="addToDisplay('8')">8</button>
+            <button class="col-span-1 p-2 border border-gray-600 circle-btn hover:bg-gray-600"
+                onclick="addToDisplay('9')">9</button>
+            <button class="col-span-1 p-2 border border-gray-600 circle-btn bg-yellow-400 hover:bg-yellow-500"
+                onclick="addToDisplay('/')">/</button>
+            <button class="col-span-1 p-2 border border-gray-600 circle-btn hover:bg-gray-600"
+                onclick="addToDisplay('4')">4</button>
+            <button class="col-span-1 p-2 border border-gray-600 circle-btn hover:bg-gray-600"
+                onclick="addToDisplay('5')">5</button>
+            <button class="col-span-1 p-2 border border-gray-600 circle-btn hover:bg-gray-600"
+                onclick="addToDisplay('6')">6</button>
+            <button class="col-span-1 p-2 border border-gray-600 circle-btn bg-yellow-400 hover:bg-yellow-500"
+                onclick="addToDisplay('*')">*</button>
+            <button class="col-span-1 p-2 border border-gray-600 circle-btn hover:bg-gray-600"
+                onclick="addToDisplay('1')">1</button>
+            <button class="col-span-1 p-2 border border-gray-600 circle-btn hover:bg-gray-600"
+                onclick="addToDisplay('2')">2</button>
+            <button class="col-span-1 p-2 border border-gray-600 circle-btn hover:bg-gray-600"
+                onclick="addToDisplay('3')">3</button>
+            <button class="col-span-1 p-2 border border-gray-600 circle-btn bg-yellow-400 hover:bg-yellow-500"
+                onclick="addToDisplay('-')">-</button>
+            <button class="col-span-1 p-2 border border-gray-600 circle-btn hover:bg-gray-600"
+                onclick="addToDisplay('0')">0</button>
+            <button class="col-span-1 p-2 border border-gray-600 circle-btn hover:bg-gray-600"
+                onclick="addToDisplay('.')">.</button>
+            <button class="col-span-1 p-2 border border-gray-600 circle-btn bg-green-400 hover:bg-green-500"
+                onclick="calculate()">=</button>
+            <button class="col-span-1 p-2 border border-gray-600 circle-btn bg-yellow-400 hover:bg-yellow-500"
+                onclick="addToDisplay('+')">+</button>
+            <button class="col-span-2 p-2 border border-gray-600 circle-btn hover:bg-gray-600"
+                onclick="clearDisplay()">C</button>
+        </div>
+    </div>
+</body>
+<script src="main.js"></script>
+
+</html>
